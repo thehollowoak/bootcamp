@@ -1,0 +1,5 @@
+com\lse\spring\example\jta\UserJdbcTest.class
+com\lse\spring\example\jta\TestConfig.class
+com\lse\spring\example\jta\UserBaseTest.class
+com\lse\spring\example\jta\AccountDaoBaseTest.class
+com\lse\spring\example\jta\AccountDaoJdbcTest.class

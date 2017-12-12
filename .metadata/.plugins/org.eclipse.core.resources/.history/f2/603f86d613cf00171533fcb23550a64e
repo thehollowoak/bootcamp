@@ -1,0 +1,18 @@
+package com.lse.util.examples.annotations;
+
+import org.apache.commons.beanutils.*;
+import org.apache.commons.lang.StringUtils;
+
+import java.beans.PropertyDescriptor;
+
+public class PopulateProperty {
+
+    public void apply(final Object object, final String key, final String value) throws Exception {
+        PropertyDescriptor pd = PropertyUtils
+                .getPropertyDescriptor(object, key);
+        if (pd != null) {
+                BeanUtils.setProperty(object, key, value);
+        }
+
+    }
+}

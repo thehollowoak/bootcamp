@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="star"/>
+<aop-project name="gs-consuming-web-service"/>
+<aop-project name="ioc-example"/>
+<aop-project name="jta-example"/>
+<aop-project name="dao-example"/>
+<aop-project name="techreads"/>
+<aop-project name="gs-producing-web-service"/>
+<aop-project name="beans-example"/>
+</aop-reference-model>

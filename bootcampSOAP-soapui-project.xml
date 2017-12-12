@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="41defb23-ef7e-4ab2-9c01-0afaec108718" activeEnvironment="Default" name="bootcampSOAP" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b6a34fc0-36a4-4356-a763-d7ee0c0c71e0" wsaVersion="NONE" name="PuppiesAndStuffPortSoap11" type="wsdl" bindingName="{http://spring.io/guides/gs-producing-web-service}PuppiesAndStuffPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/gogetit/puppiesAndStuff.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/gogetit/puppiesAndStuff.wsdl"><con:part><con:url>http://localhost:8080/gogetit/puppiesAndStuff.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://spring.io/guides/gs-producing-web-service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://spring.io/guides/gs-producing-web-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring.io/guides/gs-producing-web-service">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://spring.io/guides/gs-producing-web-service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getPuppiesAndStuffRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cuteAnimalName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPuppiesAndStuffResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="imageLink" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPuppiesAndStuffResponse">
+    <wsdl:part element="tns:getPuppiesAndStuffResponse" name="getPuppiesAndStuffResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPuppiesAndStuffRequest">
+    <wsdl:part element="tns:getPuppiesAndStuffRequest" name="getPuppiesAndStuffRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PuppiesAndStuffPort">
+    <wsdl:operation name="getPuppiesAndStuff">
+      <wsdl:input message="tns:getPuppiesAndStuffRequest" name="getPuppiesAndStuffRequest"></wsdl:input>
+      <wsdl:output message="tns:getPuppiesAndStuffResponse" name="getPuppiesAndStuffResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PuppiesAndStuffPortSoap11" type="tns:PuppiesAndStuffPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPuppiesAndStuff">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getPuppiesAndStuffRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPuppiesAndStuffResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PuppiesAndStuffPortService">
+    <wsdl:port binding="tns:PuppiesAndStuffPortSoap11" name="PuppiesAndStuffPortSoap11">
+      <soap:address location="http://localhost:8080/gogetit"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/gogetit</con:endpoint></con:endpoints><con:operation id="04ff6c57-ab0d-4791-a3da-780786d6a9f4" isOneWay="false" action="" name="getPuppiesAndStuff" bindingOperationName="getPuppiesAndStuff" type="Request-Response" outputName="getPuppiesAndStuffResponse" inputName="getPuppiesAndStuffRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="10dfbe21-5ff4-43b1-8180-77d8d87e2302" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/gogetit</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://spring.io/guides/gs-producing-web-service">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <gs:getPuppiesAndStuffRequest>\r
+         <gs:cuteAnimalName>goat</gs:cuteAnimalName>\r
+      </gs:getPuppiesAndStuffRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://spring.io/guides/gs-producing-web-service/PuppiesAndStuffPort/getPuppiesAndStuffRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

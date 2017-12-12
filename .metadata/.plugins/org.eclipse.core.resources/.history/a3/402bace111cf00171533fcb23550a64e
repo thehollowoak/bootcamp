@@ -1,0 +1,78 @@
+package com.lse.util.examples.annotations;
+
+import org.junit.*;
+
+import java.util.Properties;
+
+/**
+ * Unit test for project injector
+ */
+public class PropertyInjectorTest {
+    private static final String NOT_FOUND = "not found";
+
+    @Before
+    public void setup() {
+        PropertyInjector.getProps().clear();
+    }
+
+    @After
+    public void teardown() {
+    }
+
+    @Test
+    public void testPropertyInjectorLoadProperties() {
+        PropertyInjector.registerProperties("application.properties");
+        String name = PropertyInjector.getProperty("my.env");
+        Assert.assertNotNull(name);
+        Assert.assertEquals("dev", name);
+
+        String defaultValue = PropertyInjector.getProperty("user.name2", NOT_FOUND);
+        Assert.assertNotNull(defaultValue);
+        Assert.assertEquals(NOT_FOUND, defaultValue);
+    }
+
+    @Test
+    public void testPropertyInjectorLoadPropertiesInstance() {
+        Properties props = new Properties();
+        props.setProperty("user.name", "John Doe");
+
+        PropertyInjector.registerProperties(props);
+
+        String name = PropertyInjector.getProperty("user.name");
+        Assert.assertNotNull(name);
+        Assert.assertEquals("John Doe", name);
+
+        String defaultValue = PropertyInjector.getProperty("user.name2", NOT_FOUND);
+        Assert.assertNotNull(defaultValue);
+        Assert.assertEquals(NOT_FOUND, defaultValue);
+    }
+
+    @Test
+    public void testPropertyInjectorSetters() {
+        PropertyInjector.registerProperties("JohnDoe.properties");
+
+        UserObject user = new UserObject();
+        PropertyInjector.injectProperties(user);
+
+        Assert.assertEquals("John Doe", user.getName());
+        Assert.assertEquals("123 Main Street", user.getAddress());
+        Assert.assertEquals("Columbus", user.getCity());
+        Assert.assertEquals("OH", user.getState());
+        Assert.assertEquals(43085, user.getZipCode());
+        Assert.assertEquals(25, user.getAge());
+
+        PropertyInjector.getProps().remove("user.zip");
+        PropertyInjector.getProps().remove("user.age");
+        PropertyInjector.getProps().remove("user.address");
+        user = new UserObject();
+        PropertyInjector.injectProperties(user);
+
+        Assert.assertEquals("John Doe", user.getName());
+        Assert.assertNull(user.getAddress());
+        Assert.assertEquals("Columbus", user.getCity());
+        Assert.assertEquals("OH", user.getState());
+        Assert.assertEquals(43999, user.getZipCode());
+        Assert.assertEquals(0, user.getAge());
+
+    }
+}

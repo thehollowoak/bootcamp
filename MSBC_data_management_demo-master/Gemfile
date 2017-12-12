@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'cucumber'
+gem 'page-object'
+gem 'faker'
+gem 'factory_bot'
+gem 'data_magic'
+gem 'rspec'
+
+gem 'sinatra'
+gem 'webrick'

@@ -1,0 +1,110 @@
+<script src="../BerlinClock.js"></script>
+<script src="../../lib/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" href="../../lib/bootstrap.min.css">
+<script src="../../lib/bootstrap.min.js" ></script>
+
+<!--
+<script src="../BerlinClock.js" />
+<script src="../../lib/jquery-2.1.1.min.js" />
+<link rel="stylesheet" href="../../lib/bootstrap.min.css">
+<script src="../../lib/bootstrap.min.js" />
+-->
+<html>	
+	<style type="text/css">
+		.row div:first-child{
+			border-radius: 10px 0px 0px 10px;
+		}
+		.row div {
+			border-right: 2px solid black;
+		}
+		.row div:last-child{
+			border-radius: 0px 10px 10px 0px;
+			border-right: none !important;
+		}
+		#seconds div{
+			border-radius: 10px;
+		}
+		.ticker {
+	        height: 40px;
+			background-color: white;
+			display: inline-block;
+			margin-bottom: 5px;
+	    }
+	    #clock {
+	    	font-size: 40px;
+	    	text-align: center;
+	    	color: white;
+	    }
+		.yellow {
+			background-color: yellow;
+		}
+		.red {
+			background-color: red;
+		}
+		.black {
+			background-color: black;
+		}
+	</style>
+	<body class="black">
+		<div id="berlinClock" class="container">
+			<div id="seconds" class="row">
+				<div class="ticker col-sm-12"></div>
+			</div>
+			<div id="hoursOfFive" class="row">
+			    <div></div>
+			    <div></div>
+			    <div></div>
+			    <div></div>
+			</div>
+			<div id="hoursOfOne" class="row">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="minutesOfFive" class="row">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="minutesOfOne" class="row">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="row">
+				<div id="clock" class="col-sm-12"></div>
+			</div>	
+		</div>
+	</body>
+	<script type="text/javascript">
+		//for the sake of easy setup I am using jQuery and bootstrap to make it look decent.
+		var resize = function(){
+				var width = $(".row").css("width").replace("px", "") / 11;
+				$("#minutesOfFive div").css("width", width);
+				$(".row div").css("height", window.innerHeight / 6);
+			},
+			updateView = function(){
+				$(".row div:not(#clock)").addClass("ticker");
+	       		$("#hoursOfFive div, #hoursOfOne div, #minutesOfOne div").addClass("col-sm-3");
+	       		$("#minutesOfFive div").addClass("col-sm-1");
+			};
+		$( document ).ready(
+			function() {
+				resize();
+				updateView();
+				BerlinClock.tick();
+	   			$(window).resize(resize);
+	        	setInterval(BerlinClock.tick, 1000);
+    	});
+	</script>
+</html>

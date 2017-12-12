@@ -1,0 +1,15 @@
+Soap Client Lab Instructions 
+1.	Download SoapUI 
+2.	Download  Soap Client Lab 
+3.	Navigate to http://localhost:8080/gogetit/puppiesAndStuff.wsdl
+4.	Use the wsdl found here to build your soapUI project 
+5.	Create a request that returns a random cute thing. 
+
+6.	Import Lab as maven project. 
+7.	Implement a webservice client.
+8.	Implement a rest service that exposes this soapService client
+
+Hint * spring getting started tutorial do a great job explaining how to create a soap client
+      https://spring.io/guides/gs/consuming-web-service/
+Hint * spring also does a great job explain how to create a rest service
+      https://spring.io/guides/gs/rest-service/

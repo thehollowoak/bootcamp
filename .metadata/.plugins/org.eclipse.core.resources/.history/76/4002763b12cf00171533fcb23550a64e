@@ -1,0 +1,73 @@
+package com.lse.util.examples.annotations;
+
+public class UserObject {
+    private String name;
+    private String address;
+    private String city;
+    private String state;
+    private int zipCode;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    @SetProperty(name = "user.name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    @SetProperty(name = "user.address")
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    @SetProperty(name = "user.city")
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    @SetProperty(name = "user.state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @SetProperty(name = "user.zip", defaultValue = "43999")
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    @SetProperty(name = "user.age")
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "UserObject [name=" + name + ", address=" + address + ", city=" + city +
+                ", state=" + state + ", zipCode=" + zipCode + ", age=" + age
+                //+ ", phoneList=" + Arrays.toString(phoneList)
+                + "]";
+    }
+
+}

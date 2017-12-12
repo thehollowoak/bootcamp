@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\devl\\workspaces\\02-ioc-example\\.git;C\:\\devl\\workspaces\\04-spring-dao\\.git;C\:\\devl\\workspaces\\techreads\\.git;C\:\\devl\\workspaces\\01-annotations\\.git;C\:\\devl\\workspaces\\star\\.git;C\:\\devl\\workspaces\\03-spring-core\\.git;C\:\\devl\\workspaces\\labs\\.git;
+GitRepositoriesView.GitDirectories.relative=02-ioc-example\\.git;04-spring-dao\\.git;techreads\\.git;01-annotations\\.git;star\\.git;03-spring-core\\.git;labs\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1
